@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surah Ash-Shams — The Sun</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+html,body{margin:0;padding:0;height:100%;overflow-x:hidden}
+*{box-sizing:border-box}
+
+:root{
+--gold:#F59E0B;--amber:#D97706;--orange:#EA580C;--sky:#38BDF8;--deep:#1E3A5F;--cream:#FFFBEB;--white:#FFFFFF;
+}
+
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:#1a1a2e}
+
+/* Pulsing Sun */
+.sun-container{position:relative;width:200px;height:200px;margin:0 auto}
+.sun-core{width:100px;height:100px;background:radial-gradient(circle,#FDE68A,#F59E0B,#D97706);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 60px #F59E0B,0 0 120px #F59E0Baa,0 0 200px #F59E0B55;animation:sunPulse 3s ease-in-out infinite}
+.sun-ray{position:absolute;top:50%;left:50%;width:4px;height:60px;background:linear-gradient(to top,#F59E0B,transparent);transform-origin:bottom center;border-radius:2px;animation:rayGlow 2s ease-in-out infinite}
+@keyframes sunPulse{0%,100%{transform:translate(-50%,-50%) scale(1);box-shadow:0 0 60px #F59E0B,0 0 120px #F59E0Baa}50%{transform:translate(-50%,-50%) scale(1.15);box-shadow:0 0 80px #FBBF24,0 0 160px #F59E0Bcc,0 0 240px #F59E0B44}}
+@keyframes rayGlow{0%,100%{opacity:.6;height:60px}50%{opacity:1;height:75px}}
+
+/* Stars */
+.star{position:absolute;width:3px;height:3px;background:#FDE68A;border-radius:50%;animation:twinkle 2s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
+
+/* Typing */
+.typing-cursor{display:inline-block;width:3px;height:1em;background:var(--gold);animation:blink .7s infinite;vertical-align:middle;margin-left:4px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:all .7s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Gold glow hover */
+.gold-glow{transition:all .3s ease}
+.gold-glow:hover{box-shadow:0 0 30px #F59E0B55,0 0 60px #F59E0B22;transform:translateY(-4px)}
+
+/* Verse card */
+.verse-card{border:2px solid #F59E0B44;border-radius:16px;padding:20px;margin-bottom:16px;background:white;transition:all .3s}
+.verse-card:hover{border-color:#F59E0B;box-shadow:0 0 20px #F59E0B33}
+
+/* Scrolling banner */
+.scroll-banner{overflow:hidden;white-space:nowrap}
+.scroll-content{display:inline-block;animation:scrollBanner 30s linear infinite}
+@keyframes scrollBanner{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* Arabic text */
+.arabic{font-family:'Amiri',serif;direction:rtl;font-size:1.6rem;line-height:2.2}
+
+/* Flashcard */
+.flashcard{perspective:1000px;cursor:pointer}
+.flashcard-inner{transition:transform .6s;transform-style:preserve-3d;position:relative}
+.flashcard:hover .flashcard-inner{transform:rotateY(180deg)}
+.flashcard-front,.flashcard-back{backface-visibility:hidden;position:absolute;inset:0;border-radius:16px;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center}
+.flashcard-back{transform:rotateY(180deg)}
+
+/* Nav */
+.nav-link{position:relative;padding:4px 0}
+.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width .3s}
+.nav-link:hover::after{width:100%}
+
+/* Section divider */
+.section-divider{height:4px;background:linear-gradient(90deg,transparent,#F59E0B,#EA580C,#F59E0B,transparent);border-radius:2px;margin:0 auto;max-width:200px}
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full" style="height:100%;overflow-y:auto;overflow-x:hidden"><!-- NAV -->
+   <nav id="main-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(30,58,95,.95);backdrop-filter:blur(10px);border-bottom:2px solid #F59E0B33">
+    <div style="max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px"><span style="font-weight:800;color:#FBBF24;font-size:1.1rem">☀️ Ash-Shams</span>
+     <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem"><a href="#overview" class="nav-link" style="color:#FDE68A;text-decoration:none">Overview</a> <a href="#verses" class="nav-link" style="color:#FDE68A;text-decoration:none">Verses</a> <a href="#themes" class="nav-link" style="color:#FDE68A;text-decoration:none">Themes</a> <a href="#thamud" class="nav-link" style="color:#FDE68A;text-decoration:none">Thamud</a> <a href="#lessons" class="nav-link" style="color:#FDE68A;text-decoration:none">Lessons</a> <a href="#glossary" class="nav-link" style="color:#FDE68A;text-decoration:none">Glossary</a>
+     </div>
+    </div>
+   </nav><!-- HERO -->
+   <section id="hero" style="position:relative;background:linear-gradient(180deg,#1E3A5F 0%,#2D4A6F 30%,#EA580C 70%,#F59E0B 90%,#FDE68A 100%);padding:120px 20px 80px;text-align:center;overflow:hidden;min-height:500px">
+    <div id="stars-container" style="position:absolute;inset:0;pointer-events:none"></div>
+    <div class="sun-container" style="margin-bottom:30px">
+     <div class="sun-core"></div>
+    </div>
+    <h1 id="hero-title" style="font-size:clamp(2rem,6vw,3.5rem);font-weight:900;color:white;margin:0 0 10px;text-shadow:0 0 40px #F59E0B88"></h1><span class="typing-cursor" id="cursor"></span>
+    <p id="hero-subtitle" style="font-size:clamp(1rem,3vw,1.4rem);color:#FDE68Acc;max-width:700px;margin:20px auto 0;font-weight:300;line-height:1.7">Discover one of the most powerful short Surahs in the Qur'an. Surah Ash-Shams uses a series of magnificent oaths by Allah — swearing by the sun, the moon, the day, the night, the sky, the earth, and the human soul — to teach us one of the most important lessons in Islam: the success or failure of every person depends on whether they purify or corrupt their soul.</p>
+   </section><!-- OVERVIEW -->
+   <section id="overview" style="padding:60px 20px;background:white">
+    <div style="max-width:1100px;margin:0 auto">
+     <h2 class="reveal" style="text-align:center;font-size:2rem;font-weight:800;color:#1E3A5F;margin-bottom:8px">📖 Surah Overview</h2>
+     <div class="section-divider reveal" style="margin-bottom:12px"></div>
+     <p class="reveal" style="text-align:center;color:#555;max-width:750px;margin:0 auto 40px;line-height:1.7">Surah Ash-Shams is a profound chapter that was revealed in Makkah during the early period of Prophet Muhammad's ﷺ mission. It is one of the short, powerful Surahs at the end of the Qur'an that packs an incredible amount of meaning into just 15 verses. The Surah is named after the Sun (Ash-Shams) because it opens with Allah swearing an oath by the sun and its brightness. This Surah is part of Juz 30, which is commonly memorised by Muslims around the world.</p>
+     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px">
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-radius:16px;padding:24px;text-align:center">
+       <div style="font-size:2.5rem;margin-bottom:8px">
+        🔢
+       </div>
+       <div style="font-weight:700;color:#92400E;font-size:1.3rem">
+        91st Surah
+       </div>
+       <p style="color:#78350F;font-size:.85rem;margin-top:4px">Positioned near the end of the Holy Qur'an</p>
+      </div>
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#FFEDD5,#FDBA74);border-radius:16px;padding:24px;text-align:center">
+       <div style="font-size:2.5rem;margin-bottom:8px">
+        🕌
+       </div>
+       <div style="font-weight:700;color:#9A3412;font-size:1.3rem">
+        Meccan
+       </div>
+       <p style="color:#7C2D12;font-size:.85rem;margin-top:4px">Revealed in Makkah before the Hijrah</p>
+      </div>
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#E0F2FE,#7DD3FC);border-radius:16px;padding:24px;text-align:center">
+       <div style="font-size:2.5rem;margin-bottom:8px">
+        📜
+       </div>
+       <div style="font-weight:700;color:#0C4A6E;font-size:1.3rem">
+        15 Verses
+       </div>
+       <p style="color:#075985;font-size:.85rem;margin-top:4px">Short but incredibly impactful</p>
+      </div>
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#FEF3C7,#FCD34D);border-radius:16px;padding:24px;text-align:center">
+       <div style="font-size:2.5rem;margin-bottom:8px">
+        📚
+       </div>
+       <div style="font-weight:700;color:#92400E;font-size:1.3rem">
+        Juz 30
+       </div>
+       <p style="color:#78350F;font-size:.85rem;margin-top:4px">Part of the commonly memorised last Juz</p>
+      </div>
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#FFF7ED,#FB923C);border-radius:16px;padding:24px;text-align:center">
+       <div style="font-size:2.5rem;margin-bottom:8px">
+        ☀️
+       </div>
+       <div style="font-weight:700;color:#9A3412;font-size:1.3rem">
+        Means "The Sun"
+       </div>
+       <p style="color:#7C2D12;font-size:.85rem;margin-top:4px">Named after the very first oath in the Surah</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- VERSES -->
+   <section id="verses" style="padding:60px 20px;background:linear-gradient(180deg,#FFFBEB,#FEF3C7)">
+    <div style="max-width:900px;margin:0 auto">
+     <h2 class="reveal" style="text-align:center;font-size:2rem;font-weight:800;color:#1E3A5F;margin-bottom:8px">✨ All 15 Verses</h2>
+     <div class="section-divider reveal" style="margin-bottom:12px"></div>
+     <p class="reveal" style="text-align:center;color:#555;max-width:700px;margin:0 auto 40px;line-height:1.7">Below you will find each of the 15 verses of Surah Ash-Shams presented with the original Arabic text, an English translation, and a transliteration to help you with pronunciation. Notice how the first seven verses are all oaths — this is one of the longest series of oaths in the entire Qur'an, building up to the powerful conclusion about the human soul.</p>
+     <div id="verses-container"></div>
+    </div>
+   </section><!-- THEMES -->
+   <section id="themes" style="padding:60px 20px;background:white">
+    <div style="max-width:1100px;margin:0 auto">
+     <h2 class="reveal" style="text-align:center;font-size:2rem;font-weight:800;color:#1E3A5F;margin-bottom:8px">🎯 Key Themes</h2>
+     <div class="section-divider reveal" style="margin-bottom:12px"></div>
+     <p class="reveal" style="text-align:center;color:#555;max-width:700px;margin:0 auto 40px;line-height:1.7">Surah Ash-Shams covers several interconnected themes. Allah uses oaths by His magnificent creations to draw our attention, then delivers a powerful message about the human soul and the consequences of our choices. The story of the people of Thamud serves as a historical warning.</p>
+     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#1E3A5F,#2D5A8E);border-radius:20px;padding:28px;color:white">
+       <div style="font-size:2rem;margin-bottom:12px">
+        🌙
+       </div>
+       <h3 style="font-weight:700;font-size:1.2rem;color:#FBBF24;margin:0 0 8px">Allah's Magnificent Oaths</h3>
+       <p style="color:#BAE6FD;font-size:.9rem;line-height:1.6">Allah swears by seven of His incredible creations — the sun, the moon, the day, the night, the sky, the earth, and the soul. In Arabic rhetoric, when Allah takes an oath, it means what follows is extremely important. The sheer number of oaths here shows how vital the message is.</p>
+      </div>
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#EA580C,#DC2626);border-radius:20px;padding:28px;color:white">
+       <div style="font-size:2rem;margin-bottom:12px">
+        💫
+       </div>
+       <h3 style="font-weight:700;font-size:1.2rem;color:#FDE68A;margin:0 0 8px">The Human Soul (Nafs)</h3>
+       <p style="color:#FED7AA;font-size:.9rem;line-height:1.6">The Surah teaches that Allah created the human soul and placed within it the ability to recognise both good (taqwa) and evil (fujoor). Every person has a natural moral compass — an inner knowledge of right and wrong that Allah has built into us.</p>
+      </div>
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#059669,#047857);border-radius:20px;padding:28px;color:white">
+       <div style="font-size:2rem;margin-bottom:12px">
+        🌱
+       </div>
+       <h3 style="font-weight:700;font-size:1.2rem;color:#FDE68A;margin:0 0 8px">Purification (Tazkiyah)</h3>
+       <p style="color:#A7F3D0;font-size:.9rem;line-height:1.6">The central message: "Successful is the one who purifies their soul, and failed is the one who corrupts it." Tazkiyah means to cleanse, purify and develop your character through good deeds, worship, and avoiding sin. This is the purpose of life in Islam.</p>
+      </div>
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#7C3AED,#6D28D9);border-radius:20px;padding:28px;color:white">
+       <div style="font-size:2rem;margin-bottom:12px">
+        🐪
+       </div>
+       <h3 style="font-weight:700;font-size:1.2rem;color:#FDE68A;margin:0 0 8px">The Story of Thamud</h3>
+       <p style="color:#DDD6FE;font-size:.9rem;line-height:1.6">The Surah recounts the people of Thamud who rejected Prophet Salih (AS) and killed the miraculous she-camel that Allah sent as a sign. Their arrogance and corruption of their souls led to their complete destruction — a real historical warning for all of us.</p>
+      </div>
+      <div class="reveal gold-glow" style="background:linear-gradient(135deg,#D97706,#B45309);border-radius:20px;padding:28px;color:white">
+       <div style="font-size:2rem;margin-bottom:12px">
+        ⚖️
+       </div>
+       <h3 style="font-weight:700;font-size:1.2rem;color:#FEF3C7;margin:0 0 8px">Accountability &amp; Consequences</h3>
+       <p style="color:#FDE68A;font-size:.9rem;line-height:1.6">Allah holds every person and every nation accountable. The destruction of Thamud shows that no one escapes the consequences of their actions. Whether individually or as a community, we will all answer for our choices.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- THAMUD STORY -->
+   <section id="thamud" style="padding:60px 20px;background:linear-gradient(180deg,#1E3A5F,#2D4A6F);color:white">
+    <div style="max-width:900px;margin:0 auto">
+     <h2 class="reveal" style="text-align:center;font-size:2rem;font-weight:800;color:#FBBF24;margin-bottom:8px">🐪 The Story of Thamud</h2>
+     <div class="section-divider reveal" style="margin-bottom:40px"></div>
+     <div style="display:grid;gap:24px">
+      <div class="reveal" style="background:rgba(255,255,255,.08);border-radius:16px;padding:28px;border-left:4px solid #F59E0B">
+       <h3 style="color:#FBBF24;font-weight:700;margin:0 0 12px;font-size:1.15rem">🏜️ Who Were Thamud?</h3>
+       <p style="color:#BAE6FD;line-height:1.7;font-size:.95rem">The Thamud were an ancient Arab nation who lived in the rocky landscape of Al-Hijr (modern-day Madain Salih in Saudi Arabia). They were incredibly skilled at carving homes and buildings out of mountains. Allah blessed them with wealth, power, and resources. Despite all these blessings, many of them were arrogant and ungrateful, worshipping idols instead of Allah.</p>
+      </div>
+      <div class="reveal" style="background:rgba(255,255,255,.08);border-radius:16px;padding:28px;border-left:4px solid #38BDF8">
+       <h3 style="color:#7DD3FC;font-weight:700;margin:0 0 12px;font-size:1.15rem">👤 Prophet Salih (AS)</h3>
+       <p style="color:#BAE6FD;line-height:1.7;font-size:.95rem">Allah sent Prophet Salih (AS) to guide the people of Thamud back to the worship of One God. He called them to leave their idol worship and be grateful for Allah's blessings. He warned them that if they continued on their path of corruption, they would face severe consequences. Most of the wealthy leaders rejected him, while some of the common people believed.</p>
+      </div>
+      <div class="reveal" style="background:rgba(255,255,255,.08);border-radius:16px;padding:28px;border-left:4px solid #FB923C">
+       <h3 style="color:#FDBA74;font-weight:700;margin:0 0 12px;font-size:1.15rem">🐫 The Miraculous She-Camel</h3>
+       <p style="color:#BAE6FD;line-height:1.7;font-size:.95rem">The people demanded a miracle as proof. Allah caused a magnificent she-camel to miraculously emerge from a solid rock. Prophet Salih (AS) told them this was Allah's sign and warned them: "This is Allah's she-camel — let her eat and drink freely, and do not harm her, or a terrible punishment will seize you." The she-camel was to share the water supply with the people on alternate days.</p>
+      </div>
+      <div class="reveal" style="background:rgba(255,255,255,.08);border-radius:16px;padding:28px;border-left:4px solid #EF4444">
+       <h3 style="color:#FCA5A5;font-weight:700;margin:0 0 12px;font-size:1.15rem">💥 Their Disobedience &amp; Destruction</h3>
+       <p style="color:#BAE6FD;line-height:1.7;font-size:.95rem">Despite the clear warning, the most wicked man among them — encouraged by the others — hamstrung and killed the she-camel. This was an act of extreme arrogance and defiance against Allah. Prophet Salih warned them they had only three days left. On the third day, a devastating blast from the sky (a sayhah — a terrible scream/earthquake) destroyed them all. Allah levelled them to the ground, and their magnificent carved buildings became empty ruins — a lesson for all future generations.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- KEY LESSONS -->
+   <section id="lessons" style="padding:60px 20px;background:linear-gradient(180deg,#FEF3C7,#FFFBEB)">
+    <div style="max-width:1100px;margin:0 auto">
+     <h2 class="reveal" style="text-align:center;font-size:2rem;font-weight:800;color:#1E3A5F;margin-bottom:8px">💡 Key Lessons for Us</h2>
+     <div class="section-divider reveal" style="margin-bottom:12px"></div>
+     <p class="reveal" style="text-align:center;color:#555;max-width:700px;margin:0 auto 40px;line-height:1.7">These are the practical lessons we can take from Surah Ash-Shams and apply to our daily lives as young Muslims.</p>
+     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+      <div class="reveal gold-glow" style="background:white;border-radius:16px;padding:24px;border-top:4px solid #F59E0B">
+       <div style="font-size:2rem;margin-bottom:8px">
+        🧹
+       </div>
+       <h3 style="font-weight:700;color:#1E3A5F;margin:0 0 8px">Purify Your Soul</h3>
+       <p style="color:#555;font-size:.9rem;line-height:1.6">Work on your character every day. Be honest, kind, patient, and generous. Avoid lying, backbiting, jealousy, and arrogance. Your soul is like a garden — nurture it with good deeds.</p>
+      </div>
+      <div class="reveal gold-glow" style="background:white;border-radius:16px;padding:24px;border-top:4px solid #38BDF8">
+       <div style="font-size:2rem;margin-bottom:8px">
+        🔀
+       </div>
+       <h3 style="font-weight:700;color:#1E3A5F;margin:0 0 8px">We Choose Good or Evil</h3>
+       <p style="color:#555;font-size:.9rem;line-height:1.6">Allah has given every person the ability to know right from wrong. You have free will — every choice you make either purifies or corrupts your soul. Choose wisely!</p>
+      </div>
+      <div class="reveal gold-glo
